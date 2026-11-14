@@ -1,0 +1,584 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#1f1f1f">
+  <title>異世界謎解きクエスト</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app">
+
+  <header class="header">
+    <h1>先生救出!異世界謎解きクエスト</h1>
+    <button class="reset-btn" id="resetBtn">最初から</button>
+  </header>
+
+  <main id="screen">
+
+    <!-- START -->
+    <section class="page" data-page="start">
+      <div class="video-card">
+        <div class="video-container">
+          <iframe
+            src="https://www.youtube.com/embed/BqMH7BIJLSY"
+            title="オープニング動画"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen>
+          </iframe>
+        </div>
+      </div>
+      <p class="lead">文化祭にやってきたあなたは、デザイン学部副担任、岡魁仁(おかかいと)、通称：岡さんと出会う。</p>
+      <p>どうやら担任の山田さんがイラストの世界にさらわれてしまったらしい。山田さんを元の世界へ戻すため、謎を解いて魔王を倒そう！</p>
+      <p class="destination">まずは、受付近くを探そう！</p>
+
+      <div class="answer-box">
+        <label for="startAnswer">何がいたかな？ひらがなで入力してみよう！</label>
+        <input id="startAnswer" autocomplete="off" placeholder="答えを入力">
+        <p class="error" id="startError"></p>
+        <button class="primary" data-check="start">決定</button>
+      </div>
+    </section>
+
+    <!-- WITCH INTRO -->
+    <section class="page" data-page="witchIntro">
+      <div class="story-image"><img src="assets/mori_story.png" alt="魔女の仮画像"></div>
+      <h2>第1の謎 ― 疑り深い魔女</h2>
+      <p>森の中で、見慣れない帽子を被ったあなたを魔女が発見した。</p>
+      <p>「怪しい奴め！ 私の縄張りを荒らすなら、謎を解いて実力を示しな！」</p>
+      <div class="video-container">
+  <iframe
+    src="https://www.youtube.com/embed/gPETlGBR8PQ"
+    title="クエスト1"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen>
+  </iframe>
+</div>
+      <p class="destination">森にある謎を探そう！</p>
+      <button class="primary" data-next="witchPuzzle">謎に挑戦する</button>
+    </section>
+
+    <!-- WITCH PUZZLE -->
+    <section class="page" data-page="witchPuzzle">
+      <div class="mission-card">
+        <span>クエスト 01</span>
+        <h2>魔女の試練</h2>
+        <p>受付に貼られた謎を解き、答えを入力しよう。</p>
+      </div>
+		<div class="hint-box">
+  <button class="hint-button" onclick="toggleHint('hint-witch')">
+    💡　岡'sヒント１
+  </button>
+
+  <div id="hint-witch" class="hint-content">
+    <p>漢字の「英雄」は見当たらないね。「えいゆう」で探してみるのはどうかな？</p>
+  </div>
+		</div>
+		<div class="hint-box">
+  <button class="hint-button" onclick="toggleHint('hint-witch-2')">
+    💡 岡'sヒント２
+  </button>
+
+  <div id="hint-witch-2" class="hint-content">
+    <p>「答え」に注目してみよう！</p>
+  </div>
+</div>
+<div class="hint-box">
+  <button class="hint-button" onclick="toggleHint('hint-witch-3')">
+    😣 ギブアップ！
+  </button>
+
+  <div id="hint-witch-3" class="hint-content">
+    <p>「答え」の部分に「え」が隠れているのがわかるね！「えいゆう」の文字を繋いで中に囲われているのは「でーた」。答えは「でーた」になるね！</p>
+  </div>
+</div>
+      <div class="answer-box">
+        <label for="witchAnswer">答えをひらがなで入力</label>
+        <input id="witchAnswer" autocomplete="off" placeholder="答えを入力">
+        <p class="error" id="witchError"></p>
+        <button class="primary" data-check="witch">決定</button>
+      </div>
+    </section>
+
+    <!-- KING -->
+    <section class="page" data-page="kingIntro">
+      <div class="story-image"><img src="assets/tukazaki_story.png" alt="王様の仮画像"></div>
+      <h2>第2の謎 ― お忍び王様</h2>
+      <p>王都で情報を集めていると、お忍び中の王様ツカザキと出会った。</p>
+      <p>「魔王城の場所を知りたい？ 謎を解いてくれたら教えよう！」</p>
+      <div class="video-container">
+  <iframe
+    src="https://www.youtube.com/embed/fmI8SpHBFQk"
+    title="クエスト2王様"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen>
+  </iframe>
+</div>
+      <p class="destination">304にある謎を探そう！</p>
+      <button class="primary" data-next="kingPuzzle">謎に挑戦する</button>
+    </section>
+
+    <section class="page" data-page="kingPuzzle">
+      <div class="mission-card">
+        <span>クエスト 02</span>
+        <h2>王様の試練</h2>
+        <p>教室301入口に貼られた謎を解き、答えを入力しよう。</p>
+      </div>
+		<div class="hint-box">
+  <button class="hint-button" onclick="toggleHint('hint-king')">
+    💡 岡'sヒント１
+  </button>
+
+  <div id="hint-king" class="hint-content">
+    <p>「ひ」の上が「は」、「た」の右が「さ」、「ま」の下が「み」になるものに心当たりはないかな？。</p>
+  </div>
+ </div>
+	<div class="hint-box">
+  <button class="hint-button" onclick="toggleHint('hint-king-2')">
+    💡 岡'sヒント２
+  </button>
+
+  <div id="hint-king-2" class="hint-content">
+    <p>ヒント１を元に考えてみると、50音順の表が思い浮かぶね！それを踏まえて当てはめてみよう！</p>
+  </div>
+		</div>
+<div class="hint-box">
+  <button class="hint-button" onclick="toggleHint('hint-king-3')">
+    😣 ギブアップ！
+  </button>
+
+  <div id="hint-king-3" class="hint-content">
+    <p>50音順の表に当てはめて矢印の指示に従うと答えは「きりとり」になるね！</p>
+  </div>
+</div>
+		
+      <div class="answer-box">
+        <label for="kingAnswer">答えをひらがなで入力</label>
+        <input id="kingAnswer" autocomplete="off" placeholder="答えを入力">
+        <p class="error" id="kingError"></p>
+        <button class="primary" data-check="king">決定</button>
+      </div>
+    </section>
+
+    <!-- HANA -->
+    <section class="page" data-page="hanaIntro">
+      <div class="story-image"><img src="assets/hanai_story.png" alt="刺客の仮画像"></div>
+      <h2>第3の謎 ― 魔王の刺客</h2>
+      <p>森と王都でのあなたの実力は、ついに魔王軍にも伝わってしまった。</p>
+      <p>「魔王軍の刺客であるこの私を退けられますか？ さあ、私の謎で勝負です！」</p>
+      <div class="video-container">
+  <iframe
+    src="https://www.youtube.com/embed/rTmwLMhdWLs"
+    title="クエスト３"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen>
+  </iframe>
+</div>
+      <p class="destination">物販ブースの謎を解こう！</p>
+      <button class="primary" data-next="hanaPuzzle">謎に挑戦する</button>
+    </section>
+
+    <section class="page" data-page="hanaPuzzle">
+      <div class="mission-card">
+        <span>クエスト 03</span>
+        <h2>刺客ハナイの試練</h2>
+        <p>物販ブースに仕掛けられた謎を解き、答えを入力しよう。</p>
+      </div>
+		<div class="hint-box">
+  <button class="hint-button" onclick="toggleHint('hint-sikaku')">
+    💡 岡'sヒント１
+  </button>
+
+  <div id="hint-sikaku" class="hint-content">
+    <p>まずは、「S」のスタートから、「G」のゴールまで辿ってみよう！</p>
+  </div>
+		</div>
+			<div class="hint-box">
+  <button class="hint-button" onclick="toggleHint('hint-sikaku-2')">
+    💡 岡'sヒント２
+  </button>
+
+  <div id="hint-sikaku-2" class="hint-content">
+    <p>「S」から「G」まで辿ると「みぎからよめ」という言葉になるね！「コタエ」がカタカナで書かれていることと関係があるかも？</p>
+  </div>
+		</div>
+<div class="hint-box">
+  <button class="hint-button" onclick="toggleHint('hint-sikau-3')">
+    😣 ギブアップ！
+  </button>
+
+  <div id="hint-sikaku-3" class="hint-content">
+    <p>右からカタカナを読むと、答えは「おえかき」になるね！</p>
+  </div>
+</div>
+      <div class="answer-box">
+        <label for="hanaAnswer">答えをひらがなで入力</label>
+        <input id="hanaAnswer" autocomplete="off" placeholder="答えを入力">
+        <p class="error" id="hanaError"></p>
+        <button class="primary" data-check="hana">決定</button>
+      </div>
+    </section>
+
+    <!-- SUYAMA -->
+    <section class="page" data-page="suyamaIntro">
+      <div class="story-image"><img src="assets/suyama_story.png" alt="商人の仮画像"></div>
+      <h2>第4の謎 ― 謎多き商人</h2>
+      <p>魔王城への入り方を探していると、謎多き商人スヤマが声をかけてきた。</p>
+      <p>「その帽子、ええやん。謎を解いてくれたら、潜入に使えるもんタダでプレゼントや！」</p>
+      <div class="video-container">
+  <iframe
+    src="https://www.youtube.com/embed/VJL69ZFZb0g"
+    title="クエスト４"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen>
+  </iframe>
+</div>
+      <p class="destination">商人の謎を解こう！</p>
+      <button class="primary" data-next="suyamaPuzzle">謎に挑戦する</button>
+    </section>
+
+    <section class="page" data-page="suyamaPuzzle">
+      <div class="mission-card">
+        <span>クエスト 04</span>
+        <h2>商人スヤマの取引</h2>
+        <p>物販ブースの謎を解けば、魔王城潜入用アイテムをくれるようだ。</p>
+      </div>
+			<div class="hint-box">
+  <button class="hint-button" onclick="toggleHint('hint-syouninn')">
+    💡 岡'sヒント１
+  </button>
+
+  <div id="hint-syouninn" class="hint-content">
+    <p>答えにある線の形と、上の表に関係がありそうだね！</p>
+  </div>
+		</div>
+	<div class="hint-box">
+  <button class="hint-button" onclick="toggleHint('hint-syouninn-2')">
+    💡 岡'sヒント２
+  </button>
+
+  <div id="hint-syouninn-2" class="hint-content">
+    <p>一文字目に注目すると、文字の右側と下を線で囲まれた「お」が当てはまりそうだね！同じルールで他ふたつも考えてみよう！</p>
+  </div>
+		</div>
+		
+	<div class="hint-box">
+  <button class="hint-button" onclick="toggleHint('hint-syouninn-3')">
+    😣 ギブアップ！
+  </button>
+
+  <div id="hint-syouninn-3" class="hint-content">
+    <p>線が隣り合う文字を一つずつ探していくと、答えは「おもて」になるみたいだよ！</p>
+  </div>
+		</div>
+      <div class="answer-box">
+        <label for="suyamaAnswer">答えをひらがなで入力</label>
+        <input id="suyamaAnswer" autocomplete="off" placeholder="答えを入力">
+        <p class="error" id="suyamaError"></p>
+        <button class="primary" data-check="suyama">決定</button>
+      </div>
+    </section>
+
+    <section class="page" data-page="suyamaBonus">
+      <div class="bonus-card">
+        <span>おまけアイテム</span>
+        <h2>ますます気に入ったわ。せっかくや、もう一つ解いてみぃひん？</h2>
+        <p>このおまけ謎は解かなくても物語を進められます。</p>
+        <p>ただし、解くと異界のアイテムをくれるようです。</p>
+        <div class="button-row">
+          <button class="secondary" data-next="gate">次へ進む</button>
+          <button class="primary" data-next="suyamaBonusPuzzle">おまけ謎に挑戦</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="page" data-page="suyamaBonusPuzzle">
+      <div class="mission-card">
+        <span>おまけアイテム</span>
+        <h2>謎多き商人のおまけ謎</h2>
+        <p>山田さん救出には影響しません。</p>
+      </div>
+	<div class="hint-box">
+  <button class="hint-button" onclick="toggleHint('hint-omake')">
+    💡 岡'sヒント１
+  </button>
+
+  <div id="hint-omake" class="hint-content">
+    <p>画像は、「キウイ」「つくし」「ラムネ」みたいだね！数字と何か関係あるのかな？</p>
+  </div>
+		</div>
+		<div class="hint-box">
+  <button class="hint-button" onclick="toggleHint('hint-omake-2')">
+    😣 ギブアップ！
+  </button>
+
+  <div id="hint-omake-2" class="hint-content">
+    <p>数字は文字の何番めなのかを表しているみたいだ！「キウイ」の一文字目、「つくし」の一文字目、「ラムネ」の三文字目を取って、答えは「きつね」になるね！</p>
+  </div>
+		</div>
+      <div class="answer-box">
+        <label for="bonusAnswer">答えをひらがなで入力</label>
+        <input id="bonusAnswer" autocomplete="off" placeholder="答えを入力">
+        <p class="error" id="bonusError"></p>
+        <button class="primary" data-check="bonus">決定</button>
+      </div>
+    </section>
+
+    <!-- GATE -->
+    <section class="page" data-page="gate">
+      <div class="story-image"><img src="assets/maid_check.png" alt="メイド服アイテム"></div>
+      <h2>魔王城・正門</h2>
+      <p>門番が立ちはだかっている。</p>
+      <p>スヤマからもらった潜入アイテムを見せよう。</p>
+      <div class="item-list" id="itemList"></div>
+      <button class="primary" id="enterCastle">メイド服を見せる</button>
+    </section>
+
+    <!-- MUSASHIBARA -->
+    <section class="page" data-page="musashibaraIntro">
+      <div class="story-image"><img src="assets/musasibara_story.png" alt="右腕の仮画像"></div>
+      <h2>第5の謎 ― 魔王の右腕</h2>
+      <p>魔王の部屋へ向かう途中、右腕ムサシバラが立ちはだかった！</p>
+      <p>「魔王様の元へは行かせません。あなたの『ひらめき力』がどこまで通用するか……。さあ、始めましょう」</p>
+      <div class="video-container">
+  <iframe
+    src="https://www.youtube.com/embed/xVDDcHCNyF4"
+    title="クエスト5"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen>
+  </iframe>
+</div>
+      <p class="destination">ムサシバラの謎を解こう！</p>
+      <button class="primary" data-next="musashibaraPuzzle">謎に挑戦する</button>
+    </section>
+
+    <section class="page" data-page="musashibaraPuzzle">
+      <div class="mission-card">
+        <span>クエスト 05</span>
+        <h2>右腕ムサシバラの試練</h2>
+        <p>城の謎を解き、答えを入力しよう。</p>
+      </div>
+<div class="hint-box">
+  <button class="hint-button" onclick="toggleHint('hint-migi')">
+    💡 岡'sヒント１
+  </button>
+
+  <div id="hint-migi" class="hint-content">
+    <p>矢印と枠線が関係しているみたい？</p>
+  </div>
+		</div>
+<div class="hint-box">
+  <button class="hint-button" onclick="toggleHint('hint-migi-2')">
+    💡 岡'sヒント２
+  </button>
+
+  <div id="hint-migi-2" class="hint-content">
+    <p>例題をみると、「乃」という漢字の左側を取るとカタカナの「ノ」になるみたい！同じルールで「加」を見てみるとカタカナの「カ」になるね！</p>
+  </div>
+		</div>
+<div class="hint-box">
+  <button class="hint-button" onclick="toggleHint('hint-migi-3')">
+    😣 ギブアップ！
+  </button>
+
+  <div id="hint-migi-3" class="hint-content">
+    <p>それぞれ矢印の部分を取ると、答えは「かたち」になるね！</p>
+  </div>
+		</div>
+      <div class="answer-box">
+        <label for="musashibaraAnswer">答えをひらがなで入力</label>
+        <input id="musashibaraAnswer" autocomplete="off" placeholder="答えを入力">
+        <p class="error" id="musashibaraError"></p>
+        <button class="primary" data-check="musashibara">決定</button>
+      </div>
+    </section>
+
+    <!-- DEMON KING -->
+    <section class="page" data-page="demonIntro">
+      <div class="story-image"><img src="assets/nakamura_story.png" alt="魔王の仮画像"></div>
+      <div class="final-battle">FINAL BATTLE</div>
+      <h2>第6の謎 ― 魔王シンヤ・ナカムラ</h2>
+      <p>「山田を返して欲しくば、我が魂を込めた究極の謎を解き明かしてみせよ！ さあ、最後の勝負だ！！」</p>
+      <div class="video-container">
+  <iframe
+    src="https://www.youtube.com/embed/XYF-2bFqswk"
+    title="クエスト6"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen>
+  </iframe>
+</div>
+      <p class="destination">魔王を倒して山田さんを救え！</p>
+      <button class="primary" data-next="demonPuzzle">最終決戦へ</button>
+    </section>
+
+    <section class="page" data-page="demonPuzzle">
+      <div class="mission-card final-mission">
+        <span>クエスト 06</span>
+        <h2>魔王に渾身のひらめき力を！</h2>
+        <p>最後の謎を解き、山田さんを助けよう。</p>
+      </div>
+<div class="hint-box">
+  <button class="hint-button" onclick="toggleHint('hint-maou')">
+    💡 岡'sヒント１
+  </button>
+
+  <div id="hint-maou" class="hint-content">
+    <p>どうして「靴」のイラストから「月」に進んでいるのか考えてみよう！</p>
+  </div>
+		</div>
+<div class="hint-box">
+  <button class="hint-button" onclick="toggleHint('hint-maou-2')">
+    💡 岡'sヒント２
+  </button>
+
+  <div id="hint-maou-2" class="hint-content">
+    <p>イラストをそれぞれ言葉にすると、「くつ」「つき」「あか」「かめら」「らっこ」「きゃんぷふぁいやー」になるね！</p>
+  </div>
+		</div>
+<div class="hint-box">
+  <button class="hint-button" onclick="toggleHint('hint-maou-3')">
+    💡 岡'sヒント３
+  </button>
+
+  <div id="hint-maou-3" class="hint-content">
+    <p>イラストを順番にしりとり形式で繋いでみよう！</p>
+  </div>
+		</div>
+<div class="hint-box">
+  <button class="hint-button" onclick="toggleHint('hint-maou-4')">
+    😣 ギブアップ！
+  </button>
+
+  <div id="hint-maou-4" class="hint-content">
+    <p>イラストを順番にしりとり形式で繋いだとき、通る文字は「クリエイター」。答えは「クリエイター」になるね！</p>
+  </div>
+		</div>
+      <div class="answer-box">
+        <label for="demonAnswer">答えをひらがなで入力</label>
+        <input id="demonAnswer" autocomplete="off" placeholder="答えを入力">
+        <p class="error" id="demonError"></p>
+        <button class="primary" data-check="demon">決定</button>
+      </div>
+    </section>
+
+    <!-- DEFEAT -->
+    <section class="page" data-page="defeat">
+      <div class="story-image"><img src="assets/nakamura_collect.png" alt="魔王撃破の仮画像"></div>
+      <h2>魔王撃破！</h2>
+      <p>山田さんを檻から救出した！</p>
+	<div class="video-container">
+  <iframe
+    src="https://www.youtube.com/embed/-6B1j0vFa1I"
+    title="最終クエスト"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen>
+  </iframe>
+</div>
+      <p>だが元の世界に帰れない！？受付へ行って帰還方法を聞いてみよう。</p>
+      <button class="primary" data-next="bigPuzzle">最後の謎へ</button>
+    </section>
+
+    <!-- BIG PUZZLE -->
+    <section class="page" data-page="bigPuzzle">
+      <div class="final-note">
+        <span>最終クエスト</span>
+        <h2>脱出の鍵</h2>
+        <p>帰還の門は開かない。</p>
+        <p>山田さんのポケットに入っていた最後の謎には、こう書かれていた。</p>
+        <blockquote>「冒険を振り返り、現実世界の大切な仲間を思い出せ。」</blockquote>
+        <p>今までの冒険を振り返り、答えを導き出そう。</p>
+      </div>
+<div class="hint-box">
+  <button class="hint-button" onclick="toggleHint('hint-last')">
+    💡 岡'sヒント１
+  </button>
+
+  <div id="hint-last" class="hint-content">
+    <p>これはクロスワードだね！今までの冒険を振り返るってどういうことかな？…そういえば、今までのクエストにはそれそれ色が当てはめられていたね？</p>
+  </div>
+		</div>
+<div class="hint-box">
+  <button class="hint-button" onclick="toggleHint('hint-last-2')">
+    💡 岡'sヒント２
+  </button>
+
+  <div id="hint-last-2" class="hint-content">
+    <p>魔女は紫、王様は黄色、刺客は緑、商人はオレンジ、魔王の右腕は青、魔王は赤に対応しているみたいだ！</p>
+  </div>
+		</div>
+<div class="hint-box">
+  <button class="hint-button" onclick="toggleHint('hint-last-3')">
+    💡 岡'sヒント３
+  </button>
+
+  <div id="hint-last-3" class="hint-content">
+    <p>枠の中にそれそれの謎の答えを入れてみよう！</p>
+  </div>
+		</div>
+<div class="hint-box">
+  <button class="hint-button" onclick="toggleHint('hint-last-4')">
+    😣 ギブアップ！
+  </button>
+
+  <div id="hint-last-4" class="hint-content">
+    <p>クロスワードに答えを当てはめて出てくる答えは…「おかかいと」！？現実界の仲間って僕のことなの！？</p>
+  </div>
+		</div>
+      <div class="answer-box">
+        <label for="bigAnswer">答えをひらがなで入力</label>
+        <input id="bigAnswer" autocomplete="off" placeholder="答えを入力">
+        <p class="error" id="bigError"></p>
+        <button class="primary" data-check="big">決定</button>
+      </div>
+    </section>
+
+    <!-- CLEAR -->
+    <section class="page" data-page="clear">
+      <div class="clear-card">
+        <div class="clear-title">CLEAR!</div>
+        <div class="story-image"><img src="assets/yamada_collect.png" alt="クリア画面の仮画像"></div>
+        <h2>山田さんを元の世界へ連れ戻した！</h2>
+        <p>あなたの冒険は無事に終了しました。謎解き受付で報酬を受け取りましょう。</p>
+      </div>
+
+      <div class="record">
+        <h3>あなたの冒険記録</h3>
+        <ul>
+          <li>魔女モリ　✓</li>
+          <li>王様ツカザキ　✓</li>
+          <li>刺客ハナイ　✓</li>
+          <li>商人スヤマ　✓</li>
+          <li>右腕ムサシバラ　✓</li>
+          <li>魔王シンヤ・ナカムラ　✓</li>
+        </ul>
+      </div>
+
+      <div class="reward" id="reward"></div>
+    </section>
+
+  </main>
+
+  <!-- 正解ポップアップ -->
+  <div class="modal" id="correctModal" aria-hidden="true">
+    <div class="modal-box">
+      <button class="modal-close" id="modalClose">×</button>
+      <img id="modalImage" src="assets/correct.png" alt="正解">
+      <h2 id="modalTitle">正解！</h2>
+      <p id="modalText">次へ進もう！</p>
+      <button class="primary" id="modalNext">次へ</button>
+    </div>
+  </div>
+
+</div>
+<script src="script.js" charset="UTF-8"></script>
+</body>
+</html>
